@@ -87,7 +87,7 @@
             <Separator layoutX="14.0" layoutY="57.0" prefWidth="200.0" />
         </children>
     </AnchorPane>
-   <AnchorPane fx:id="screenTran" layoutX="317.0" layoutY="42.0" prefHeight="478.0" prefWidth="583.0" visible="false">
+   <AnchorPane fx:id="screenTran" layoutX="317.0" layoutY="42.0" prefHeight="478.0" prefWidth="583.0">
       <children>
           <JFXTextField fx:id="fieldValue" focusColor="#508dbf" labelFloat="true" layoutX="14.0" layoutY="126.0" prefHeight="25.0" prefWidth="217.0" promptText="Valor da transação" unFocusColor="#393636" />
           <JFXTextField fx:id="fieldDescription" focusColor="#508dbf" labelFloat="true" layoutX="292.0" layoutY="214.0" prefHeight="25.0" prefWidth="217.0" promptText="Descrição da transação" unFocusColor="#393636" />

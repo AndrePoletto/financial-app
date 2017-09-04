@@ -108,25 +108,22 @@ public class Controller {
     private void handleButtonSubmit(MouseEvent event) throws ParseException {
         if (event.getSource() == btnSubTrans){
             Transaction trans = new Transaction();
+
             trans.setValue(Float.parseFloat(fieldValue.getText()));
             trans.setDescription(fieldDescription.getText());
+            trans.setNote(fieldNote.getText());
+            trans.setConsolidate(fieldConsolidate.isSelected());
+            trans.setDate(fieldDate.getValue());
+            trans.setReminder(fieldReminder.getValue());
+            trans.setAccount(fieldAccount.getSelectionModel().getSelectedItem().toString());
+            trans.setCategory(fieldCategory.getSelectionModel().getSelectedItem().toString());
             if(fieldRecip.isSelected()){
                 trans.setType("Receita");
             }
             else{
                 trans.setType("Débito");
             }
-            trans.setNote(fieldNote.getText());
-            trans.setConsolidate(fieldConsolidate.isSelected());
-
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            Date txtDate = sdf.parse(String.valueOf(fieldDate.getValue()));
-            trans.setDate(txtDate);
-            txtDate = sdf.parse(String.valueOf(fieldReminder.getValue()));
-            trans.setReminder(txtDate);
-            trans.setAccount(fieldAccount.getSelectionModel().getSelectedItem().toString());
-            trans.setCategory(fieldCategory.getSelectionModel().getSelectedItem().toString());
-
+            //trans.printAt();
         }
         else if (event.getSource() == btnSubCat){
             Category cat = new Category();

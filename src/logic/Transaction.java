@@ -1,11 +1,11 @@
 package logic;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Transaction {
     private float value;
     private String description, category, account, note, type;
-    private Date date, reminder;
+    private LocalDate date, reminder;
     private boolean consolidate;
 
     public void setValue(float value) {
@@ -28,11 +28,11 @@ public class Transaction {
         this.note = note;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
-    public void setReminder(Date reminder) {
+    public void setReminder(LocalDate reminder) {
         this.reminder = reminder;
     }
 
@@ -42,5 +42,9 @@ public class Transaction {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public void printAt(){
+        System.out.print(value + "\n" + description + "\n" + category + "\n" + account + "\n" + note + "\n" + date.toString() + "\n" + reminder.toString() + "\n" + consolidate + "\n" + type);
     }
 }
