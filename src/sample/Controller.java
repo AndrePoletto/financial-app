@@ -12,8 +12,6 @@ import logic.Category;
 import logic.Transaction;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 
 public class Controller {
@@ -43,7 +41,7 @@ public class Controller {
     private JFXColorPicker fieldCategoryColor;
 
     @FXML
-    private JFXComboBox fieldAccount, fieldCategory, fieldCategoryType;
+    private JFXComboBox <String> fieldAccount, fieldCategory, fieldCategoryType;
 
     @FXML
     private javafx.scene.image.ImageView transSelecIcon, catSelecIcon, acoSelecIcon;
@@ -115,22 +113,23 @@ public class Controller {
             trans.setConsolidate(fieldConsolidate.isSelected());
             trans.setDate(fieldDate.getValue());
             trans.setReminder(fieldReminder.getValue());
-            trans.setAccount(fieldAccount.getSelectionModel().getSelectedItem().toString());
-            trans.setCategory(fieldCategory.getSelectionModel().getSelectedItem().toString());
+            trans.setAccount(fieldAccount.getSelectionModel().getSelectedItem());
+            trans.setCategory(fieldCategory.getSelectionModel().getSelectedItem());
             if(fieldRecip.isSelected()){
                 trans.setType("Receita");
             }
             else{
                 trans.setType("Débito");
             }
-            //trans.printAt();
+            trans.printAt();
         }
         else if (event.getSource() == btnSubCat){
             Category cat = new Category();
             cat.setName(fieldCategoryName.getText());
             cat.setCategoryColor(fieldCategoryColor.getValue().toString());
             cat.setNote(fieldCategoryNote.getText());
-            cat.setType(fieldCategoryType.getSelectionModel().getSelectedItem().toString());
+            cat.setType(fieldCategoryType.getSelectionModel().getSelectedItem());
+            cat.printCa();
         }
         else if (event.getSource() == btnSubAco){
             Account acc = new Account();
@@ -139,6 +138,7 @@ public class Controller {
             acc.setName(fieldAccountName.getText());
             acc.setNote(fieldAccountNote.getText());
             acc.setSituation(fieldActivate.isSelected());
+            acc.printAc();
         }
     }
 

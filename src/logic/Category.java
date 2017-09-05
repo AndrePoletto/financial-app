@@ -18,4 +18,8 @@ public class Category {
     public void setNote(String note) {
         this.note = note;
     }
+
+    public void printCa(){
+        System.out.print(type + "\n" + name + "\n" + categoryColor + "\n" + note);
+    }
 }

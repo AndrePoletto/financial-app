@@ -24,4 +24,8 @@ public class Account {
     public void setSituation(boolean situation) {
         this.situation = situation;
     }
+
+    public void printAc(){
+        System.out.print(name + "\n" + iconLetters + "\n" + note + "\n" + initialValue + "\n" + situation);
+    }
 }
