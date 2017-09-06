@@ -17,10 +17,10 @@ import java.text.ParseException;
 public class Controller {
 
     @FXML
-    private AnchorPane btnTran, btnCat, btnAco, screenTran, screenCat, screenAco;
+    private AnchorPane btnTransaction, btnCategory, btnAccount, screenTran, screenCat, screenAco;
 
     @FXML
-    private Label screenText;
+    private Label screenText, btnTransactionText, btnCategoryText, btnAccountText;
 
     @FXML
     private JFXTextField fieldValue, fieldDescription, fieldInitValue, fieldAccountName, fieldInitials, fieldCategoryName;
@@ -47,7 +47,7 @@ public class Controller {
     private javafx.scene.image.ImageView transSelecIcon, catSelecIcon, acoSelecIcon;
 
     @FXML
-    private JFXButton btnSubTrans, btnSubCat, btnSubAco;
+    private JFXButton btnSubTrans, btnSubCat, btnSubAcc;
 
     @FXML
     private ObservableList<String> accountList = FXCollections.observableArrayList("Carteira", "Conta Corrente", "Cartão de Crédito");
@@ -62,7 +62,7 @@ public class Controller {
     }
 
     @FXML
-    public void handle(MouseEvent mouseEvent) {
+    public void handleCheckBox(MouseEvent mouseEvent) {
         if (mouseEvent.getSource() == fieldRecip && fieldRecip.isSelected()) {
             fieldDebit.setSelected(false);
         }
@@ -72,8 +72,9 @@ public class Controller {
     }
 
     @FXML
-    private void handleButtonAction(MouseEvent event){
-        if (event.getTarget() == btnTran){
+    private void handleSectionButtonAction(MouseEvent event){
+        System.out.print(event.getTarget() + "\n");
+        if (event.getTarget() == btnTransaction || event.getTarget() == btnTransactionText){
             screenText.setText("Transações");
             transSelecIcon.setVisible(true);
             catSelecIcon.setVisible(false);
@@ -82,7 +83,7 @@ public class Controller {
             screenCat.setVisible(false);
             screenAco.setVisible(false);
         }
-        else if (event.getTarget() == btnCat){
+        else if (event.getTarget() == btnCategory || event.getTarget() == btnCategoryText){
             screenText.setText("Categorias");
             transSelecIcon.setVisible(false);
             catSelecIcon.setVisible(true);
@@ -91,7 +92,7 @@ public class Controller {
             screenCat.setVisible(true);
             screenAco.setVisible(false);
         }
-        else if (event.getTarget() == btnAco){
+        else if (event.getTarget() == btnAccount || event.getTarget() == btnAccountText){
             screenText.setText("Contas");
             transSelecIcon.setVisible(false);
             catSelecIcon.setVisible(false);
@@ -131,7 +132,7 @@ public class Controller {
             cat.setType(fieldCategoryType.getSelectionModel().getSelectedItem());
             cat.printCa();
         }
-        else if (event.getSource() == btnSubAco){
+        else if (event.getSource() == btnSubAcc){
             Account acc = new Account();
             acc.setIconLetters(fieldInitials.getText());
             acc.setInitialValue(Float.parseFloat(fieldInitValue.getText()));
