@@ -1,4 +1,4 @@
-package sample;
+package controllers;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,10 +11,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../visual/mainWindow.fxml"));
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Finance Application");
-        primaryStage.setScene(new Scene(root, 900, 500));
+        primaryStage.setScene(new Scene(root, 900, 700));
         primaryStage.show();
     }
 

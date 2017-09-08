@@ -44,7 +44,9 @@ public class Transaction {
         this.type = type;
     }
 
-    public void printAt(){
-        System.out.print(value + "\n" + description + "\n" + category + "\n" + account + "\n" + note + "\n" + date.toString() + "\n" + reminder.toString() + "\n" + consolidate + "\n" + type);
+    public void print(){
+        System.out.print("value: " + value + "\ndescription: " + description + "\ncategory: " + category +
+                "\naccount: " + account + "\nnote: " + note + "\ndate: " + date.toString() + "\nreminder: " +
+                reminder.toString() + "\nconsolidate: " + consolidate + "\ntype: " + type);
     }
 }

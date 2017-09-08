@@ -19,7 +19,8 @@ public class Category {
         this.note = note;
     }
 
-    public void printCa(){
-        System.out.print(type + "\n" + name + "\n" + categoryColor + "\n" + note);
+    public void print(){
+        System.out.print("type: " + type + "\nname: " + name + "\ncategoryColor: " + categoryColor +
+                "\nnote: " + note);
     }
 }
