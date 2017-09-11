@@ -49,4 +49,10 @@ public class Transaction {
                 "\naccount: " + account + "\nnote: " + note + "\ndate: " + date.toString() + "\nreminder: " +
                 reminder.toString() + "\nconsolidate: " + consolidate + "\ntype: " + type);
     }
+
+    public String getCsvFormat(){
+        return value + "," + description + "," + category +
+                "," + account + "," + note + "," + date.toString() + "," +
+                reminder.toString() + "," + consolidate + "," + type;
+    }
 }
