@@ -42,8 +42,12 @@ public class Test {
 //        System.out.println("\n\n--------------------\n");
 //
 //        dao1.print();
+//
+//        AccountDAO.persist();
 
-        AccountDAO.persist();
+        AccountDAO accDAO = new AccountDAO();
+
+        accDAO.print();
 
     }
 

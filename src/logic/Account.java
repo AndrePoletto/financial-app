@@ -30,4 +30,8 @@ public class Account {
         System.out.print("name: " + name + "\niconLetters: " + iconLetters + "\nnote: " + note +
                 "\nvalue: " + value + "\nsituation: " + situation);
     }
+
+    public String getCsvFormat(){
+        return name+","+iconLetters+","+note+","+value+","+situation+"\n";
+    }
 }

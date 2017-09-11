@@ -1,13 +1,12 @@
 package model.dao;
 
-import logic.Account;
+import logic.Category;
 
 import java.io.*;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
-public class AccountDAO {
-
+public class CategoryDAO {
     /*
      * Essa class não esta tratando unicidade
      * ou seja se create for usado para objetos q ja estão na lista
@@ -15,23 +14,23 @@ public class AccountDAO {
      *
      */
 
-    private static List<Account> data = new ArrayList<Account>();
+    private static List<Category> data = new ArrayList<Category>();
 
-    public AccountDAO() {
+    public CategoryDAO() {
         loadData();
     }
 
     /**
-     * Add to a Account to the data list
+     * Add to a Category to the data list
      *
-     * @param acc
+     * @param cat
      */
-    public void create(Account acc) {
-        data.add(acc);
+    public void create(Category cat) {
+        data.add(cat);
     }
 
     /**
-     * Return all Accounts
+     * Return all Category
      *
      * @return
      */
@@ -40,27 +39,27 @@ public class AccountDAO {
     }
 
     /**
-     * Return Account
+     * Return Category
      *
      * @param id
      * @return
      */
-    public Account read(int id) {
+    public Category read(int id) {
         return data.get(id);
     }
 
     /**
-     * Update a Account on data
+     * Update a Category on data
      *
      * @param id
-     * @param acc
+     * @param cat
      */
-    public void update(int id, Account acc) {
-        data.set(id, acc);
+    public void update(int id, Category cat) {
+        data.set(id, cat);
     }
 
     /**
-     * Remove a Account using the ID
+     * Remove a Category using the ID
      *
      * @param id
      */
@@ -69,29 +68,29 @@ public class AccountDAO {
     }
 
     /**
-     * Remove a Account using a Account Instance
+     * Remove a Category using a Category Instance
      *
-     * @param acc
+     * @param cat
      */
-    public void delete(Account acc) {
-        data.remove(acc);
+    public void delete(Category cat) {
+        data.remove(cat);
     }
 
 
     public static void persist() {
 
         File dataDir = new File("src" + File.separator + "model" + File.separator + "data");
-        File dataFile = new File(dataDir, "account.db");
+        File dataFile = new File(dataDir, "category.db");
 
         try {
             FileWriter db = new FileWriter(dataFile, false);
 
             // Write head
-            db.write("name,iconLetters,note,value,situation\n");
+            db.write("type, name, categoryColor, note\n");
 
             // Write Data
-            for(Account a : data){
-                db.append(a.getCsvFormat());
+            for (Category c : data) {
+                db.append(c.getCsvFormat());
             }
 
             db.close();
@@ -104,7 +103,7 @@ public class AccountDAO {
 
     public static void loadData() {
         File dataDir = new File("src" + File.separator + "model" + File.separator + "data");
-        File dataFile = new File(dataDir, "account.db");
+        File dataFile = new File(dataDir, "category.db");
 
 
         try {
@@ -115,25 +114,25 @@ public class AccountDAO {
             db.readLine();
 
             // Read data and load to data:List
-            while (db.ready()){
+            while (db.ready()) {
                 /*
                 * Here we read a line from the file
                 * and split using , then instantiate
-                * a Account and add to data:List
+                * a Categpry and add to data:List
                 */
 
                 String line = db.readLine();
                 String[] splitedLine = line.split(",");
 
-                Account acc = new Account();
+                Category cat = new Category();
 
-                acc.setName(splitedLine[0]);
-                acc.setIconLetters(splitedLine[1]);
-                acc.setNote(splitedLine[2]);
-                acc.setValue(Float.valueOf(splitedLine[3]));
-                acc.setSituation(Boolean.valueOf(splitedLine[4]));
+                cat.setType(splitedLine[0]);
+                cat.setName(splitedLine[1]);
+                cat.setCategoryColor(splitedLine[2]);
+                cat.setNote(splitedLine[3]);
 
-                data.add(acc);
+
+                data.add(cat);
             }
 
 
@@ -148,10 +147,8 @@ public class AccountDAO {
      * Print on console all data Account
      */
     public void print() {
-        for (Account a : data) {
-            a.print();
+        for (Category c : data) {
+            c.print();
         }
     }
-
-
 }

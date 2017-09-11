@@ -23,4 +23,8 @@ public class Category {
         System.out.print("type: " + type + "\nname: " + name + "\ncategoryColor: " + categoryColor +
                 "\nnote: " + note);
     }
+
+    public String getCsvFormat(){
+        return type + "," + name + "," + categoryColor + "," + note + "\n";
+    }
 }
