@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainWindowController">
     <ImageView fitHeight="32.0" fitWidth="24.0" layoutX="870.0" layoutY="5.0" onMouseClicked="#handleClose" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
-        <Image url="@/images/closeWindowIcon.png" />
+        <Image url="@/view/images/closeWindowIcon.png" />
     </ImageView>
     <Label layoutX="16.0" layoutY="12.0" prefHeight="17.0" prefWidth="217.0" text="Financial Application" />
     <AnchorPane layoutY="33.0" prefHeight="667.0" prefWidth="317.0" style="-fx-background-color: linear-gradient(from 20% 20% to 100% 100%, #91c0ff, #d9e7f9);">
@@ -22,53 +22,53 @@
             </Label>
             <Separator layoutX="26.0" layoutY="90.0" prefWidth="200.0" />
         </AnchorPane>
-        <AnchorPane fx:id="btnTransaction" layoutY="154.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/css/style.css" AnchorPane.topAnchor="154.0">
+        <AnchorPane fx:id="btnTransaction" layoutY="154.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css" AnchorPane.topAnchor="154.0">
             <Label fx:id="btnTransactionText" contentDisplay="RIGHT" layoutX="76.0" layoutY="23.0" prefHeight="54.0" prefWidth="173.0" text="Transações" textAlignment="RIGHT" AnchorPane.topAnchor="23.0">
             <font>
                <Font size="30.0" />
             </font></Label>
             <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@/images/tranIcon.png" />
+                <Image url="@/view/images/tranIcon.png" />
             </ImageView>
             <ImageView fx:id="transSelecIcon" fitHeight="37.0" fitWidth="32.0" layoutX="266.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                <Image url="@/images/selecIcon.png" />
+                <Image url="@/view/images/selecIcon.png" />
             </ImageView>
         </AnchorPane>
-        <AnchorPane fx:id="btnCategory" layoutY="254.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/css/style.css" AnchorPane.topAnchor="254.0">
+        <AnchorPane fx:id="btnCategory" layoutY="254.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css" AnchorPane.topAnchor="254.0">
             <Label fx:id="btnCategoryText" contentDisplay="RIGHT" layoutX="76.0" layoutY="23.0" prefHeight="54.0" prefWidth="167.0" text="Categorias" textAlignment="RIGHT" AnchorPane.topAnchor="23.0">
             <font>
                <Font size="30.0" />
             </font></Label>
             <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@/images/catIcon.png" />
+                <Image url="@/view/images/catIcon.png" />
             </ImageView>
             <ImageView fx:id="catSelecIcon" fitHeight="37.0" fitWidth="32.0" layoutX="266.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                <Image url="@/images/selecIcon.png" />
+                <Image url="@/view/images/selecIcon.png" />
             </ImageView>
         </AnchorPane>
-        <AnchorPane fx:id="btnAccount" layoutY="354.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/css/style.css">
+        <AnchorPane fx:id="btnAccount" layoutY="354.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css">
             <Label fx:id="btnAccountText" contentDisplay="RIGHT" layoutX="76.0" layoutY="23.0" prefHeight="54.0" prefWidth="111.0" text="Contas" textAlignment="RIGHT" AnchorPane.topAnchor="23.0">
             <font>
                <Font size="30.0" />
             </font></Label>
             <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@/images/contIcon.png" />
+                <Image url="@/view/images/contIcon.png" />
             </ImageView>
             <ImageView fx:id="accSelecIcon" fitHeight="37.0" fitWidth="32.0" layoutX="266.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                <Image url="@/images/selecIcon.png" />
+                <Image url="@/view/images/selecIcon.png" />
             </ImageView>
         </AnchorPane>
-        <AnchorPane fx:id="btnData" layoutY="454.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/css/style.css">
+        <AnchorPane fx:id="btnData" layoutY="454.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css">
             <Label fx:id="btnDataText" contentDisplay="RIGHT" layoutX="76.0" layoutY="23.0" prefHeight="54.0" prefWidth="111.0" text="Dados" textAlignment="RIGHT" AnchorPane.topAnchor="23.0">
                 <font>
                     <Font size="30.0" />
                 </font>
             </Label>
             <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@/images/chartIcon.png" />
+                <Image url="@/view/images/chartIcon.png" />
             </ImageView>
             <ImageView fx:id="dataSelecIcon" fitHeight="37.0" fitWidth="32.0" layoutX="266.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" visible="false">
-                <Image url="@/images/selecIcon.png" />
+                <Image url="@/view/images/selecIcon.png" />
             </ImageView>
         </AnchorPane>
     </AnchorPane>

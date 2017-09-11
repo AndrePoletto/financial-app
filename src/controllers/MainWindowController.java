@@ -121,7 +121,7 @@ public class MainWindowController {
     private void handleButtonAdd(MouseEvent event) throws IOException {
         if (event.getSource() == btnNewTrans){
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("../visual/addTransaction.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("../view/visual/addTransaction.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             Stage stage = new Stage();
             stage.setTitle("Add new Transaction");
@@ -130,7 +130,7 @@ public class MainWindowController {
         }
         else if (event.getSource() == btnNewCat){
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("../visual/addCategory.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("../view/visual/addCategory.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             Stage stage = new Stage();
             stage.setTitle("Add new Category");
@@ -139,7 +139,7 @@ public class MainWindowController {
         }
         else if (event.getSource() == btnNewAcc){
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("../visual/addAccount.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("../view/visual/addAccount.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             Stage stage = new Stage();
             stage.setTitle("Add new Account");

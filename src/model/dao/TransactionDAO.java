@@ -1,6 +1,6 @@
 package model.dao;
 
-import logic.Transaction;
+import model.logic.Transaction;
 
 import java.io.*;
 import java.time.LocalDate;

@@ -11,7 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../visual/mainWindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../view/visual/mainWindow.fxml"));
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Finance Application");
         primaryStage.setScene(new Scene(root, 900, 700));

@@ -1,6 +1,6 @@
 package model.dao;
 
-import logic.Category;
+import model.logic.Category;
 
 import java.io.*;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package model.dao;
 
-import logic.Account;
+import model.logic.Account;
 
 import java.io.*;
 import java.util.List;

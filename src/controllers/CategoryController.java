@@ -10,7 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import logic.Category;
+import model.logic.Category;
 
 public class CategoryController {
 

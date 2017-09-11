@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import logic.Account;
+import model.logic.Account;
 
 public class AccountController {
 

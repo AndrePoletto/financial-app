@@ -1,4 +1,4 @@
-package logic;
+package model.logic;
 
 public class Category {
     private String type, name, categoryColor, note;
