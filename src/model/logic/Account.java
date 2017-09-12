@@ -26,6 +26,10 @@ public class Account {
         this.value = value;
     }
 
+    public String getName(){
+        return name;
+    }
+
     public void print(){
         System.out.print("name: " + name + "\niconLetters: " + iconLetters + "\nnote: " + note +
                 "\nvalue: " + value + "\nsituation: " + situation);

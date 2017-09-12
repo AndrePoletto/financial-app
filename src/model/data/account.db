@@ -1,4 +1,3 @@
-id,name,iconLetters,note,value,situation
-Lorem ips cadna asdndflksa ndfl,dsfasdfsdfasd,knsdolkanjhsdfklhjasdfnhaios,12.36,true
-Lorem rola pinto cadna asdndflksa ndfl,dsfasdfsdfasd,knsdolkanjhsdfklhjasdfnhaios,158.36,false
-Luzasd,dsfasdfsdfasd,knsdolkanjhsdfklhjasdfnhaios,30.36,true
+name,iconLetters,note,value,situation
+Carteira,CT,null,67.0,true
+Cartão,CR,null,0.0,true

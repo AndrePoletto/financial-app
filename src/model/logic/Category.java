@@ -19,6 +19,10 @@ public class Category {
         this.note = note;
     }
 
+    public String getName(){
+        return name;
+    }
+
     public void print(){
         System.out.print("type: " + type + "\nname: " + name + "\ncategoryColor: " + categoryColor +
                 "\nnote: " + note);
