@@ -14,7 +14,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("../view/visual/mainWindow.fxml"));
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Finance Application");
-        primaryStage.setScene(new Scene(root, 900, 700));
+        primaryStage.setScene(new Scene(root, 1200, 700));
         primaryStage.show();
     }
 

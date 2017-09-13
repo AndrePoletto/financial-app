@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainWindowController">
-    <ImageView fitHeight="32.0" fitWidth="24.0" layoutX="870.0" layoutY="5.0" onMouseClicked="#handleClose" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainWindowController">
+    <ImageView fitHeight="17.0" fitWidth="21.0" layoutX="1178.0" layoutY="4.0" onMouseClicked="#handleClose" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
         <Image url="@/view/images/closeWindowIcon.png" />
     </ImageView>
-    <Label layoutX="16.0" layoutY="12.0" prefHeight="17.0" prefWidth="217.0" text="Financial Application" />
-    <AnchorPane layoutY="33.0" prefHeight="667.0" prefWidth="317.0" style="-fx-background-color: linear-gradient(from 20% 20% to 100% 100%, #91c0ff, #d9e7f9);">
-        <AnchorPane layoutY="-2.0" prefHeight="156.0" prefWidth="317.0">
+    <Label layoutX="26.0" layoutY="4.0" prefHeight="17.0" prefWidth="217.0" text="Financial Application" />
+    <AnchorPane layoutY="23.0" prefHeight="677.0" prefWidth="317.0" style="-fx-background-color: linear-gradient(from 20% 20% to 100% 100%, #91c0ff, #d9e7f9);">
+        <AnchorPane layoutY="-9.0" prefHeight="163.0" prefWidth="317.0">
             <Label layoutX="26.0" layoutY="48.0" text="Finanças" textFill="#403e3e">
                 <font>
                     <Font name="Bell MT Bold" size="25.0" />
@@ -72,7 +72,7 @@
             </ImageView>
         </AnchorPane>
     </AnchorPane>
-    <AnchorPane layoutX="317.0" layoutY="33.0" prefHeight="90.0" prefWidth="583.0" style="-fx-background-color: #6699ff;">
+    <AnchorPane layoutX="317.0" layoutY="23.0" prefHeight="95.0" prefWidth="883.0" style="-fx-background-color: #6699ff;">
         <Label fx:id="screenText" layoutX="14.0" layoutY="27.0" text="Início" textFill="WHITE">
             <font>
                 <Font name="Bell MT Bold" size="24.0" />
@@ -80,7 +80,12 @@
         </Label>
         <Separator layoutX="14.0" layoutY="57.0" prefWidth="200.0" />
     </AnchorPane>
-     <JFXButton fx:id="btnNewTrans" buttonType="RAISED" layoutX="525.0" layoutY="348.0" mnemonicParsing="false" onMouseClicked="#handleButtonAdd" prefHeight="37.0" prefWidth="167.0" style="-fx-padding: 0.7em 0.57em; -fx-background-color: rgb(102, 153, 255);" text="Adicionar Transação" textFill="WHITE" visible="false" />
+     <JFXButton fx:id="btnNewTrans" buttonType="RAISED" layoutX="525.0" layoutY="348.0" mnemonicParsing="false" onMouseClicked="#handleButtonAdd" prefHeight="37.0" prefWidth="167.0" style="-fx-padding: 0.7em 0.57em; -fx-background-color: rgb(102, 153, 255);" text="Adicionar Transação +" textFill="WHITE" />
      <JFXButton fx:id="btnNewAcc" buttonType="RAISED" layoutX="525.0" layoutY="348.0" mnemonicParsing="false" onMouseClicked="#handleButtonAdd" prefHeight="37.0" prefWidth="167.0" style="-fx-padding: 0.7em 0.57em; -fx-background-color: rgb(102, 153, 255);" text="Adicionar Conta" textFill="WHITE" visible="false" />
      <JFXButton fx:id="btnNewCat" buttonType="RAISED" layoutX="525.0" layoutY="348.0" mnemonicParsing="false" onMouseClicked="#handleButtonAdd" prefHeight="37.0" prefWidth="167.0" style="-fx-padding: 0.7em 0.57em; -fx-background-color: rgb(102, 153, 255);" text="Adicionar Categoria" textFill="WHITE" visible="false" />
+   <ImageView fitHeight="30.0" fitWidth="32.0" layoutX="713.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../Downloads/icons8-Add%20New-40.png" />
+      </image>
+   </ImageView>
 </AnchorPane>
