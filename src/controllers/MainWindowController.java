@@ -4,6 +4,9 @@ import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
@@ -14,13 +17,13 @@ import java.io.IOException;
 
 public class MainWindowController {
     @FXML
-    private AnchorPane btnTransaction, btnCategory, btnAccount, btnData;
+    private AnchorPane btnTransaction, btnCategory, btnAccount, btnData, tabTransaction, tabCategory, tabAccount, tabData;
 
     @FXML
     private Label screenText, btnTransactionText, btnCategoryText, btnAccountText;
 
     @FXML
-    private javafx.scene.image.ImageView transSelecIcon, catSelecIcon, accSelecIcon, dataSelecIcon;
+    private ImageView transSelecIcon, catSelecIcon, accSelecIcon, dataSelecIcon;
 
     @FXML
     private JFXButton btnNewTrans, btnNewCat, btnNewAcc;
@@ -45,9 +48,9 @@ public class MainWindowController {
             dataSelecIcon.setVisible(false);
 
             //Controls the tab views
-            btnNewTrans.setVisible(true);
-            btnNewCat.setVisible(false);
-            btnNewAcc.setVisible(false);
+            tabTransaction.setVisible(true);
+            tabCategory.setVisible(false);
+            tabAccount.setVisible(false);
         }
         else if (event.getTarget() == btnCategory || event.getTarget() == btnCategoryText){
 
@@ -67,9 +70,9 @@ public class MainWindowController {
             dataSelecIcon.setVisible(false);
 
             //Controls the tab views
-            btnNewTrans.setVisible(false);
-            btnNewCat.setVisible(true);
-            btnNewAcc.setVisible(false);
+            tabTransaction.setVisible(false);
+            tabCategory.setVisible(true);
+            tabAccount.setVisible(false);
         }
         else if (event.getTarget() == btnAccount || event.getTarget() == btnAccountText){
 
@@ -89,9 +92,9 @@ public class MainWindowController {
             dataSelecIcon.setVisible(false);
 
             //Controls the tab views
-            btnNewTrans.setVisible(false);
-            btnNewCat.setVisible(false);
-            btnNewAcc.setVisible(true);
+            tabTransaction.setVisible(false);
+            tabCategory.setVisible(false);
+            tabAccount.setVisible(true);
         }
         else if (event.getTarget() == btnData || event.getTarget() == btnData){
 
@@ -111,9 +114,9 @@ public class MainWindowController {
             dataSelecIcon.setVisible(true);
 
             //Controls the tab view
-            btnNewTrans.setVisible(false);
-            btnNewCat.setVisible(false);
-            btnNewAcc.setVisible(false);
+            tabTransaction.setVisible(false);
+            tabCategory.setVisible(false);
+            tabAccount.setVisible(false);
         }
     }
 

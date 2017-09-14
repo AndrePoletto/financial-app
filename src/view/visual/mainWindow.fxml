@@ -22,7 +22,7 @@
             </Label>
             <Separator layoutX="26.0" layoutY="90.0" prefWidth="200.0" />
         </AnchorPane>
-        <AnchorPane fx:id="btnTransaction" layoutY="154.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css" AnchorPane.topAnchor="154.0">
+        <AnchorPane fx:id="btnTransaction" layoutY="254.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css" AnchorPane.topAnchor="254.0">
             <Label fx:id="btnTransactionText" contentDisplay="RIGHT" layoutX="76.0" layoutY="23.0" prefHeight="54.0" prefWidth="173.0" text="Transações" textAlignment="RIGHT" AnchorPane.topAnchor="23.0">
             <font>
                <Font size="30.0" />
@@ -34,7 +34,7 @@
                 <Image url="@/view/images/selecIcon.png" />
             </ImageView>
         </AnchorPane>
-        <AnchorPane fx:id="btnCategory" layoutY="254.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css" AnchorPane.topAnchor="254.0">
+        <AnchorPane fx:id="btnCategory" layoutY="339.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css" AnchorPane.topAnchor="339.0">
             <Label fx:id="btnCategoryText" contentDisplay="RIGHT" layoutX="76.0" layoutY="23.0" prefHeight="54.0" prefWidth="167.0" text="Categorias" textAlignment="RIGHT" AnchorPane.topAnchor="23.0">
             <font>
                <Font size="30.0" />
@@ -46,7 +46,7 @@
                 <Image url="@/view/images/selecIcon.png" />
             </ImageView>
         </AnchorPane>
-        <AnchorPane fx:id="btnAccount" layoutY="354.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css">
+        <AnchorPane fx:id="btnAccount" layoutY="439.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css">
             <Label fx:id="btnAccountText" contentDisplay="RIGHT" layoutX="76.0" layoutY="23.0" prefHeight="54.0" prefWidth="111.0" text="Contas" textAlignment="RIGHT" AnchorPane.topAnchor="23.0">
             <font>
                <Font size="30.0" />
@@ -58,7 +58,7 @@
                 <Image url="@/view/images/selecIcon.png" />
             </ImageView>
         </AnchorPane>
-        <AnchorPane fx:id="btnData" layoutY="454.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css">
+        <AnchorPane fx:id="btnData" layoutY="539.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css">
             <Label fx:id="btnDataText" contentDisplay="RIGHT" layoutX="76.0" layoutY="23.0" prefHeight="54.0" prefWidth="111.0" text="Dados" textAlignment="RIGHT" AnchorPane.topAnchor="23.0">
                 <font>
                     <Font size="30.0" />
@@ -71,6 +71,25 @@
                 <Image url="@/view/images/selecIcon.png" />
             </ImageView>
         </AnchorPane>
+      <AnchorPane fx:id="btnData1" layoutY="154.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css">
+         <children>
+            <Label fx:id="btnDataText1" contentDisplay="RIGHT" layoutX="76.0" layoutY="23.0" prefHeight="54.0" prefWidth="111.0" text="Início" textAlignment="RIGHT" AnchorPane.topAnchor="23.0">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/view/images/chartIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="dataSelecIcon1" fitHeight="37.0" fitWidth="32.0" layoutX="266.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@/view/images/selecIcon.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
     </AnchorPane>
     <AnchorPane layoutX="317.0" layoutY="23.0" prefHeight="95.0" prefWidth="883.0" style="-fx-background-color: #6699ff;">
         <Label fx:id="screenText" layoutX="14.0" layoutY="27.0" text="Início" textFill="WHITE">
@@ -80,12 +99,30 @@
         </Label>
         <Separator layoutX="14.0" layoutY="57.0" prefWidth="200.0" />
     </AnchorPane>
-     <JFXButton fx:id="btnNewTrans" buttonType="RAISED" layoutX="525.0" layoutY="348.0" mnemonicParsing="false" onMouseClicked="#handleButtonAdd" prefHeight="37.0" prefWidth="167.0" style="-fx-padding: 0.7em 0.57em; -fx-background-color: rgb(102, 153, 255);" text="Adicionar Transação +" textFill="WHITE" />
-     <JFXButton fx:id="btnNewAcc" buttonType="RAISED" layoutX="525.0" layoutY="348.0" mnemonicParsing="false" onMouseClicked="#handleButtonAdd" prefHeight="37.0" prefWidth="167.0" style="-fx-padding: 0.7em 0.57em; -fx-background-color: rgb(102, 153, 255);" text="Adicionar Conta" textFill="WHITE" visible="false" />
-     <JFXButton fx:id="btnNewCat" buttonType="RAISED" layoutX="525.0" layoutY="348.0" mnemonicParsing="false" onMouseClicked="#handleButtonAdd" prefHeight="37.0" prefWidth="167.0" style="-fx-padding: 0.7em 0.57em; -fx-background-color: rgb(102, 153, 255);" text="Adicionar Categoria" textFill="WHITE" visible="false" />
-   <ImageView fitHeight="30.0" fitWidth="32.0" layoutX="713.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../../../../../Downloads/icons8-Add%20New-40.png" />
-      </image>
-   </ImageView>
+
+    <AnchorPane fx:id="tabTransaction" layoutX="317.0" layoutY="118.0" prefHeight="582.0" prefWidth="883.0" visible="false">
+        <JFXButton fx:id="btnNewTrans" buttonType="RAISED" contentDisplay="RIGHT" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleButtonAdd" prefHeight="37.0" prefWidth="227.0" style="-fx-padding: 0.7em 0.57em; -fx-background-color: rgb(102, 153, 255);" text="Adicionar Transação " textFill="WHITE">
+            <graphic>
+                <ImageView />
+            </graphic>
+        </JFXButton>
+    </AnchorPane>
+    <AnchorPane fx:id="tabAccount" layoutX="317.0" layoutY="118.0" prefHeight="582.0" prefWidth="883.0" visible="false">
+        <JFXButton fx:id="btnNewAcc" buttonType="RAISED" contentDisplay="RIGHT" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleButtonAdd" prefHeight="37.0" prefWidth="227.0" style="-fx-padding: 0.7em 0.57em; -fx-background-color: rgb(102, 153, 255);" text="Adicionar Conta " textFill="WHITE">
+            <graphic>
+                <ImageView />
+            </graphic>
+        </JFXButton>
+    </AnchorPane>
+    <AnchorPane fx:id="tabCategory" layoutX="317.0" layoutY="118.0" prefHeight="582.0" prefWidth="883.0" visible="false">
+        <JFXButton fx:id="btnNewCat" buttonType="RAISED" contentDisplay="RIGHT" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleButtonAdd" prefHeight="37.0" prefWidth="227.0" style="-fx-padding: 0.7em 0.57em; -fx-background-color: rgb(102, 153, 255);" text="Adicionar Categoria " textFill="WHITE">
+            <graphic>
+                <ImageView />
+            </graphic>
+        </JFXButton>
+    </AnchorPane>
+
+    <fx:define>
+        <Image fx:id="btnAddImage" url="@/view/images/addIcon.png" />
+    </fx:define>
 </AnchorPane>
