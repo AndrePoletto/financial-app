@@ -1,5 +1,6 @@
 package model.dao;
 
+import model.logic.Account;
 import model.logic.Category;
 
 import java.io.*;
@@ -14,9 +15,18 @@ public class CategoryDAO {
      *
      */
 
-    private static List<Category> data = new ArrayList<Category>();
+    private static ArrayList<Category> data;
+    private static File dataDir;
+    private static File dataFile;
 
     public CategoryDAO() {
+
+        // Open file
+        dataDir = new File("src" + File.separator + "model" + File.separator + "data");
+        dataFile = new File(dataDir, "category.bin");
+
+        data = new ArrayList<Category>();
+
         loadData();
     }
 
@@ -78,68 +88,20 @@ public class CategoryDAO {
 
 
     public static void persist() {
-
-        File dataDir = new File("src" + File.separator + "model" + File.separator + "data");
-        File dataFile = new File(dataDir, "category.db");
-
-        try {
-            FileWriter db = new FileWriter(dataFile, false);
-
-            // Write head
-            db.write("type, name, categoryColor, note\n");
-
-            // Write Data
-            for (Category c : data) {
-                db.append(c.getCsvFormat());
-            }
-
-            db.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        PersistArrayHandler.save(dataFile, data);
     }
 
 
     public static void loadData() {
-        File dataDir = new File("src" + File.separator + "model" + File.separator + "data");
-        File dataFile = new File(dataDir, "category.db");
 
+        ArrayList dataBuffer = (ArrayList<Category>) PersistArrayHandler.read(dataFile);
 
-        try {
-            FileReader fileReader = new FileReader(dataFile);
-            BufferedReader db = new BufferedReader(fileReader);
-
-            // Step header
-            db.readLine();
-
-            // Read data and load to data:List
-            while (db.ready()) {
-                /*
-                * Here we read a line from the file
-                * and split using , then instantiate
-                * a Categpry and add to data:List
-                */
-
-                String line = db.readLine();
-                String[] splitedLine = line.split(",");
-
-                Category cat = new Category();
-
-                cat.setType(splitedLine[0]);
-                cat.setName(splitedLine[1]);
-                cat.setCategoryColor(splitedLine[2]);
-                cat.setNote(splitedLine[3]);
-
-
-                data.add(cat);
-            }
-
-
-            db.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (dataBuffer != null) {
+            data.addAll(dataBuffer);
+        } else {
+            System.out.println("No Data");
         }
+
     }
 
 

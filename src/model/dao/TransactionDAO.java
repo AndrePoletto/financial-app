@@ -15,10 +15,20 @@ public class TransactionDAO {
      *
      */
 
-    private static List<Transaction> data = new ArrayList<Transaction>();
+    private static ArrayList<Transaction> data;
+    private static File dataDir;
+    private static File dataFile;
 
     public TransactionDAO() {
+
+        // Open file
+        dataDir = new File("src" + File.separator + "model" + File.separator + "data");
+        dataFile = new File(dataDir, "transaction.bin");
+
+        data = new ArrayList<Transaction>();
+
         loadData();
+
     }
 
     /**
@@ -79,71 +89,20 @@ public class TransactionDAO {
 
 
     public static void persist() {
-
-        File dataDir = new File("src" + File.separator + "model" + File.separator + "data");
-        File dataFile = new File(dataDir, "transaction.db");
-
-        try {
-            FileWriter db = new FileWriter(dataFile, false);
-
-            // Write head
-            db.write("value, description, category, account, note, date, reminder, consolidate, type\n");
-
-            // Write Data
-            for(Transaction t : data){
-                db.append(t.getCsvFormat());
-            }
-
-            db.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        PersistArrayHandler.save(dataFile, data);
     }
 
 
     public static void loadData() {
-        File dataDir = new File("src" + File.separator + "model" + File.separator + "data");
-        File dataFile = new File(dataDir, "transaction.db");
 
+        ArrayList dataBuffer = (ArrayList<Transaction>) PersistArrayHandler.read(dataFile);
 
-        try {
-            FileReader fileReader = new FileReader(dataFile);
-            BufferedReader db = new BufferedReader(fileReader);
-
-            // Step header
-            db.readLine();
-
-            // Read data and load to data:List
-            while (db.ready()){
-                /*
-                * Here we read a line from the file
-                * and split using , then instantiate
-                * a Transaction and add to data:List
-                */
-
-                String line = db.readLine();
-                String[] splitedLine = line.split(",");
-
-                Transaction trans = new Transaction();
-
-                trans.setValue(Float.valueOf(splitedLine[0]));
-                trans.setDescription(splitedLine[1]);
-                trans.setCategory(splitedLine[2]);
-                trans.setAccount(splitedLine[3]);
-                trans.setNote(splitedLine[4]);
-                trans.setDate(LocalDate.parse(splitedLine[5]));
-                trans.setReminder(LocalDate.parse(splitedLine[6]));
-                trans.setType(splitedLine[7]);
-
-                data.add(trans);
-            }
-
-
-            db.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (dataBuffer != null) {
+            data.addAll(dataBuffer);
+        } else {
+            System.out.println("No Data");
         }
+
     }
 
 

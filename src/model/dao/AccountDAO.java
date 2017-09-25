@@ -3,7 +3,6 @@ package model.dao;
 import model.logic.Account;
 
 import java.io.*;
-import java.util.List;
 import java.util.ArrayList;
 
 public class AccountDAO {
@@ -15,9 +14,18 @@ public class AccountDAO {
      *
      */
 
-    private static List<Account> data = new ArrayList<Account>();
+    private static ArrayList<Account> data;
+    private static File dataDir;
+    private static File dataFile;
 
     public AccountDAO() {
+
+        // Open file
+        dataDir = new File("src" + File.separator + "model" + File.separator + "data");
+        dataFile = new File(dataDir, "account.bin");
+
+        data = new ArrayList<Account>();
+
         loadData();
     }
 
@@ -35,7 +43,7 @@ public class AccountDAO {
      *
      * @return
      */
-    public List readAll() {
+    public ArrayList<Account> readAll() {
         return data;
     }
 
@@ -79,68 +87,20 @@ public class AccountDAO {
 
 
     public static void persist() {
-
-        File dataDir = new File("src" + File.separator + "model" + File.separator + "data");
-        File dataFile = new File(dataDir, "account.db");
-
-        try {
-            FileWriter db = new FileWriter(dataFile, false);
-
-            // Write head
-            db.write("name,iconLetters,note,value,situation\n");
-
-            // Write Data
-            for(Account a : data){
-                db.append(a.getCsvFormat());
-            }
-
-            db.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        PersistArrayHandler.save(dataFile, data);
     }
 
 
     public static void loadData() {
-        File dataDir = new File("src" + File.separator + "model" + File.separator + "data");
-        File dataFile = new File(dataDir, "account.db");
 
+        ArrayList dataBuffer = (ArrayList<Account>) PersistArrayHandler.read(dataFile);
 
-        try {
-            FileReader fileReader = new FileReader(dataFile);
-            BufferedReader db = new BufferedReader(fileReader);
-
-            // Step header
-            db.readLine();
-
-            // Read data and load to data:List
-            while (db.ready()){
-                /*
-                * Here we read a line from the file
-                * and split using , then instantiate
-                * a Account and add to data:List
-                */
-
-                String line = db.readLine();
-                String[] splitedLine = line.split(",");
-
-                Account acc = new Account();
-
-                acc.setName(splitedLine[0]);
-                acc.setIconLetters(splitedLine[1]);
-                acc.setNote(splitedLine[2]);
-                acc.setValue(Float.valueOf(splitedLine[3]));
-                acc.setSituation(Boolean.valueOf(splitedLine[4]));
-
-                data.add(acc);
-            }
-
-
-            db.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (dataBuffer != null) {
+            data.addAll(dataBuffer);
+        } else {
+            System.out.println("No Data");
         }
+
     }
 
 

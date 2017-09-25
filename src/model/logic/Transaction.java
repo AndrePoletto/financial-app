@@ -1,8 +1,9 @@
 package model.logic;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Transaction {
+public class Transaction implements Serializable {
     private float value;
     private String description, category, account, note, type;
     private LocalDate date, reminder;
