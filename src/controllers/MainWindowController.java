@@ -9,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import model.logic.Category;
 
 import java.io.IOException;
 
@@ -26,16 +27,19 @@ public class MainWindowController {
     @FXML
     private JFXButton btnNewTrans, btnNewCat, btnNewAcc;
 
+    @FXML JFXTreeTableView categoryTable;
+
     @FXML
     private void handleSectionButtonAction(MouseEvent event){
         if (event.getTarget() == btnTransaction || event.getTarget() == btnTransactionText){
 
             //Controls the tab styles
             btnCategory.getStyleClass().clear();
+            btnTransaction.getStyleClass().clear();
             btnAccount.getStyleClass().clear();
             btnData.getStyleClass().clear();
             btnHome.getStyleClass().clear();
-            btnTransaction.getStyleClass().add("tabControl");
+            btnTransaction.getStyleClass().add("tabSelected");
 
             //Controls the tabTitle of the page
             screenText.setText("Transações");
@@ -57,11 +61,12 @@ public class MainWindowController {
         else if (event.getTarget() == btnCategory || event.getTarget() == btnCategoryText){
 
             //Controls the tab styles
+            btnCategory.getStyleClass().clear();
             btnTransaction.getStyleClass().clear();
             btnAccount.getStyleClass().clear();
             btnData.getStyleClass().clear();
             btnHome.getStyleClass().clear();
-            btnCategory.getStyleClass().add("tabControl");
+            btnCategory.getStyleClass().add("tabSelected");
 
             //Controls the tabTitle of the page
             screenText.setText("Categorias");
@@ -83,11 +88,12 @@ public class MainWindowController {
         else if (event.getTarget() == btnAccount || event.getTarget() == btnAccountText){
 
             //Controls the tab styles
-            btnTransaction.getStyleClass().clear();
             btnCategory.getStyleClass().clear();
+            btnTransaction.getStyleClass().clear();
+            btnAccount.getStyleClass().clear();
             btnData.getStyleClass().clear();
             btnHome.getStyleClass().clear();
-            btnAccount.getStyleClass().add("tabControl");
+            btnAccount.getStyleClass().add("tabSelected");
 
             //Controls the tabTitle of the page
             screenText.setText("Contas");
@@ -109,11 +115,12 @@ public class MainWindowController {
         else if (event.getTarget() == btnData || event.getTarget() == btnDataText){
 
             //Controls the tab styles
-            btnTransaction.getStyleClass().clear();
             btnCategory.getStyleClass().clear();
+            btnTransaction.getStyleClass().clear();
             btnAccount.getStyleClass().clear();
+            btnData.getStyleClass().clear();
             btnHome.getStyleClass().clear();
-            btnData.getStyleClass().add("tabControl");
+            btnData.getStyleClass().add("tabSelected");
 
             //Controls the tabTitle of the page
             screenText.setText("Dados");
@@ -135,11 +142,12 @@ public class MainWindowController {
         else if (event.getTarget() == btnHome || event.getTarget() == btnHomeText){
 
             //Controls the tab styles
-            btnTransaction.getStyleClass().clear();
             btnCategory.getStyleClass().clear();
+            btnTransaction.getStyleClass().clear();
             btnAccount.getStyleClass().clear();
             btnData.getStyleClass().clear();
-            btnHome.getStyleClass().add("tabControl");
+            btnHome.getStyleClass().clear();
+            btnHome.getStyleClass().add("tabSelected");
 
             //Controls the tabTitle of the page
             screenText.setText("Início");
@@ -198,13 +206,28 @@ public class MainWindowController {
 
     @FXML
     private void handleEntered(MouseEvent event){
-        //btnCategory.setStyle("-fx-background-color:#dae7f3;");
+        AnchorPane source = (AnchorPane) event.getSource();
+        if(source.getStyleClass().toString().equals("tabSelected")){
+            source.getStyleClass().clear();
+            source.getStyleClass().add("tabSelected");
+        }
+        else{
+            source.getStyleClass().clear();
+            source.getStyleClass().add("tabEntered");
+        }
     }
 
     @FXML
     private void handleExited(MouseEvent event){
-        //btnCategory.setStyle("-fx-background-color:transparent;");
-        //btnCategory.getStyleClass().add("tabControl");
+        AnchorPane source = (AnchorPane) event.getSource();
+        if(source.getStyleClass().toString().equals("tabSelected")){
+            source.getStyleClass().clear();
+            source.getStyleClass().add("tabSelected");
+        }
+        else{
+            source.getStyleClass().clear();
+            source.getStyleClass().add("tabExited");
+        }
     }
 
 

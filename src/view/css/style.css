@@ -1,3 +1,11 @@
-.tabControl{
+.tabSelected{
     -fx-background-color: #4f91ff;
+}
+
+.tabEntered{
+    -fx-background-color: #dae7f3;
+}
+
+.tabExited{
+    -fx-background-color: transparent;
 }

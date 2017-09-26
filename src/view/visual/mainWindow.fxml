@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
@@ -22,7 +23,7 @@
             </Label>
             <Separator layoutX="26.0" layoutY="90.0" prefWidth="200.0" />
         </AnchorPane>
-        <AnchorPane fx:id="btnTransaction" layoutY="254.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css" AnchorPane.topAnchor="254.0">
+        <AnchorPane fx:id="btnTransaction" layoutY="254.0" onMouseEntered="#handleEntered" onMouseExited="#handleExited" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css" AnchorPane.topAnchor="254.0">
             <Label fx:id="btnTransactionText" contentDisplay="RIGHT" layoutX="76.0" layoutY="23.0" prefHeight="54.0" prefWidth="173.0" text="Transações" textAlignment="RIGHT" AnchorPane.topAnchor="23.0">
             <font>
                <Font size="30.0" />
@@ -34,7 +35,7 @@
                 <Image url="@/view/images/selecIcon.png" />
             </ImageView>
         </AnchorPane>
-        <AnchorPane fx:id="btnCategory" layoutY="339.0" onMouseEntered="#handleEntered" onMouseExited="#handleExited" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css" AnchorPane.topAnchor="339.0">
+        <AnchorPane fx:id="btnCategory" layoutY="354.0" onMouseEntered="#handleEntered" onMouseExited="#handleExited" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css" AnchorPane.topAnchor="354.0">
             <Label fx:id="btnCategoryText" contentDisplay="RIGHT" layoutX="76.0" layoutY="23.0" prefHeight="54.0" prefWidth="167.0" text="Categorias" textAlignment="RIGHT" AnchorPane.topAnchor="23.0">
             <font>
                <Font size="30.0" />
@@ -46,7 +47,7 @@
                 <Image url="@/view/images/selecIcon.png" />
             </ImageView>
         </AnchorPane>
-        <AnchorPane fx:id="btnAccount" layoutY="439.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css">
+        <AnchorPane fx:id="btnAccount" layoutY="454.0" onMouseEntered="#handleEntered" onMouseExited="#handleExited" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css">
             <Label fx:id="btnAccountText" contentDisplay="RIGHT" layoutX="76.0" layoutY="23.0" prefHeight="54.0" prefWidth="111.0" text="Contas" textAlignment="RIGHT" AnchorPane.topAnchor="23.0">
             <font>
                <Font size="30.0" />
@@ -58,7 +59,7 @@
                 <Image url="@/view/images/selecIcon.png" />
             </ImageView>
         </AnchorPane>
-        <AnchorPane fx:id="btnData" layoutY="539.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css">
+        <AnchorPane fx:id="btnData" layoutY="554.0" onMouseEntered="#handleEntered" onMouseExited="#handleExited" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css">
             <Label fx:id="btnDataText" contentDisplay="RIGHT" layoutX="76.0" layoutY="23.0" prefHeight="54.0" prefWidth="111.0" text="Dados" textAlignment="RIGHT" AnchorPane.topAnchor="23.0">
                 <font>
                     <Font size="30.0" />
@@ -71,7 +72,7 @@
                 <Image url="@/view/images/selecIcon.png" />
             </ImageView>
         </AnchorPane>
-      <AnchorPane fx:id="btnHome" layoutY="154.0" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css">
+      <AnchorPane fx:id="btnHome" layoutY="154.0" onMouseEntered="#handleEntered" onMouseExited="#handleExited" onMousePressed="#handleSectionButtonAction" prefHeight="100.0" prefWidth="317.0" style="-fx-cursor: hand;" stylesheets="@/view/css/style.css">
          <children>
             <Label fx:id="btnHomeText" contentDisplay="RIGHT" layoutX="76.0" layoutY="23.0" prefHeight="54.0" prefWidth="111.0" text="Início" textAlignment="RIGHT" AnchorPane.topAnchor="23.0">
                <font>
@@ -120,7 +121,7 @@
             </graphic>
         </JFXButton>
     </AnchorPane>
-    <AnchorPane fx:id="tabCategory" layoutX="317.0" layoutY="118.0" prefHeight="582.0" prefWidth="883.0" visible="false">
+    <AnchorPane fx:id="tabCategory" layoutX="317.0" layoutY="118.0" prefHeight="582.0" prefWidth="883.0">
         <JFXButton fx:id="btnNewCat" buttonType="RAISED" contentDisplay="RIGHT" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleButtonAdd" prefHeight="37.0" prefWidth="227.0" style="-fx-padding: 0.7em 0.57em; -fx-background-color: rgb(102, 153, 255);" text="Adicionar Categoria " textFill="WHITE">
             <graphic>
                 <ImageView>
@@ -128,7 +129,11 @@
                   <Image url="@/view/images/addIcon.png" />
                </image></ImageView>
             </graphic>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
         </JFXButton>
+      <JFXTreeTableView layoutX="15.0" layoutY="191.0" prefHeight="273.0" prefWidth="855.0" tableMenuButtonVisible="true" />
     </AnchorPane>
    <AnchorPane fx:id="tabHome" layoutX="317.0" layoutY="118.0" prefHeight="582.0" prefWidth="883.0" visible="false" />
    <AnchorPane fx:id="tabData" layoutX="317.0" layoutY="118.0" prefHeight="582.0" prefWidth="883.0" visible="false" />
