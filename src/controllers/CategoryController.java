@@ -44,12 +44,8 @@ public class CategoryController {
         if(event.getSource() == btnAdd){
 
             // Instantiates a new Category Object with the typed values
-            Category cat = new Category(){{
-                setName(fieldName.getText());
-                setCategoryColor(fieldColor.getValue().toString());
-                setNote(fieldNote.getText());
-                setType(fieldType.getSelectionModel().getSelectedItem());
-            }};
+            Category cat = new Category(fieldName.getText(), fieldType.getSelectionModel().getSelectedItem(),
+                    fieldColor.getValue().toString(), fieldNote.getText()){};
             // Instantiates a new CategoryDAO object
             CategoryDAO catDAO = new CategoryDAO();
 

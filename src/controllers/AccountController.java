@@ -28,13 +28,7 @@ public class AccountController {
         if(event.getSource() == btnAdd){
 
             // Instantiates a new Account Object with the typed values
-            Account acc = new Account(){{
-                setIconLetters(fieldIcon.getText());
-                setValue(Float.parseFloat(fieldInitValue.getText()));
-                setName(fieldName.getText());
-                setNote(fieldNote.getText());
-                setSituation(fieldActivate.isSelected());
-            }};
+            Account acc = new Account(fieldName.getText(), fieldIcon.getText(), fieldNote.getText(), Float.parseFloat(fieldInitValue.getText()), fieldActivate.isSelected());
 
             // Instantiates a new AccountDAO object
             AccountDAO accDAO = new AccountDAO();

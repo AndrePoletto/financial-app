@@ -1,28 +1,32 @@
 package model.logic;
 
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import java.io.Serializable;
 
-public class Category implements Serializable {
-    private String type, name, categoryColor, note;
+public class Category extends RecursiveTreeObject<Category> implements Serializable {
+    private String name, type, categoryColor, note;
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setName(String name) {
+    public Category(String name, String type, String categoryColor, String note){
         this.name = name;
-    }
-
-    public void setCategoryColor(String categoryColor) {
+        this.type = type;
         this.categoryColor = categoryColor;
-    }
-
-    public void setNote(String note) {
         this.note = note;
     }
 
     public String getName(){
         return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getCategoryColor() {
+        return categoryColor;
+    }
+
+    public String getNote() {
+        return note;
     }
 
     public void print(){

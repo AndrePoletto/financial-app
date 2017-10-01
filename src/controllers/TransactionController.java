@@ -91,26 +91,21 @@ public class TransactionController {
     // Handle the action buttons performance
     @FXML
     private void handleButtons(MouseEvent event){
+        String recip;
         // If "Adicionar" is pressed
         if(event.getSource() == btnAdd){
 
             // Instantiates a new Transaction Object with the typed values
-            Transaction transaction = new Transaction(){{
-                setValue(Float.parseFloat(fieldValue.getText()));
-                setDescription(fieldDescription.getText());
-                setNote(fieldNote.getText());
-                setConsolidate(fieldConsolidate.isSelected());
-                setDate(fieldDate.getValue());
-                setReminder(fieldReminder.getValue());
-                setAccount(fieldAccount.getSelectionModel().getSelectedItem());
-                setCategory(fieldCategory.getSelectionModel().getSelectedItem());
-                if(fieldRecip.isSelected()){
-                    setType("Receita");
-                }
-                else{
-                    setType("Débito");
-                }
-            }};
+            if(fieldRecip.isSelected()){
+                recip = "Receita";
+            }
+            else{
+                recip = "Débito";
+            }
+
+            Transaction transaction = new Transaction(Float.parseFloat(fieldValue.getText()), fieldDescription.getText(),
+                    fieldCategory.getSelectionModel().getSelectedItem(), fieldAccount.getSelectionModel().getSelectedItem(),
+                    fieldNote.getText(), recip, fieldDate.getValue(), fieldReminder.getValue(), fieldConsolidate.isSelected());
 
             // Instantiates a new TransactionDAO object
             TransactionDAO traDAO = new TransactionDAO();

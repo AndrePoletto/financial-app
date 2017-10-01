@@ -109,7 +109,11 @@
                   <Image url="@/view/images/addIcon.png" />
                </image></ImageView>
             </graphic>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
         </JFXButton>
+      <JFXTreeTableView fx:id="transactionTable" layoutX="14.0" layoutY="98.0" prefHeight="475.0" prefWidth="856.0" />
     </AnchorPane>
     <AnchorPane fx:id="tabAccount" layoutX="317.0" layoutY="118.0" prefHeight="582.0" prefWidth="883.0" visible="false">
         <JFXButton fx:id="btnNewAcc" buttonType="RAISED" contentDisplay="RIGHT" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleButtonAdd" prefHeight="37.0" prefWidth="227.0" style="-fx-padding: 0.7em 0.57em; -fx-background-color: rgb(102, 153, 255);" text="Adicionar Conta " textFill="WHITE">
@@ -119,7 +123,11 @@
                   <Image url="@/view/images/addIcon.png" />
                </image></ImageView>
             </graphic>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
         </JFXButton>
+      <JFXTreeTableView fx:id="accountTable" layoutX="14.0" layoutY="98.0" prefHeight="475.0" prefWidth="856.0" />
     </AnchorPane>
     <AnchorPane fx:id="tabCategory" layoutX="317.0" layoutY="118.0" prefHeight="582.0" prefWidth="883.0">
         <JFXButton fx:id="btnNewCat" buttonType="RAISED" contentDisplay="RIGHT" layoutX="642.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#handleButtonAdd" prefHeight="37.0" prefWidth="227.0" style="-fx-padding: 0.7em 0.57em; -fx-background-color: rgb(102, 153, 255);" text="Adicionar Categoria " textFill="WHITE">
@@ -133,7 +141,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
         </JFXButton>
-      <JFXTreeTableView layoutX="15.0" layoutY="191.0" prefHeight="273.0" prefWidth="855.0" tableMenuButtonVisible="true" />
+      <JFXTreeTableView fx:id="categoryTable" layoutX="14.0" layoutY="98.0" prefHeight="475.0" prefWidth="856.0" />
     </AnchorPane>
    <AnchorPane fx:id="tabHome" layoutX="317.0" layoutY="118.0" prefHeight="582.0" prefWidth="883.0" visible="false" />
    <AnchorPane fx:id="tabData" layoutX="317.0" layoutY="118.0" prefHeight="582.0" prefWidth="883.0" visible="false" />
