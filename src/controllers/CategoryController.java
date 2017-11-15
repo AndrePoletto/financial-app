@@ -12,7 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.dao.CategoryDAO;
-import model.logic.Category;
+import model.bean.Category;
 
 public class CategoryController {
 
@@ -51,7 +51,6 @@ public class CategoryController {
 
             // Saves the new info on data
             catDAO.create(cat);
-            CategoryDAO.persist();
 
             // Closes the NewCategory Window
             Node source = (Node)  event.getSource();

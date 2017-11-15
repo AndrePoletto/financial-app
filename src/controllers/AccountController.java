@@ -7,7 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.dao.AccountDAO;
-import model.logic.Account;
+import model.bean.Account;
 
 
 public class AccountController {

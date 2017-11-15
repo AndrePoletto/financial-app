@@ -11,9 +11,8 @@ import javafx.stage.Stage;
 import model.dao.AccountDAO;
 import model.dao.CategoryDAO;
 import model.dao.TransactionDAO;
-import model.logic.Account;
-import model.logic.Category;
-import model.logic.Transaction;
+import model.bean.Account;
+import model.bean.Category;
 
 import java.util.List;
 
@@ -61,7 +60,7 @@ public class TransactionController {
         CategoryDAO categoryDAO = new CategoryDAO();
         // Instantiates List of Account and Category Objects
         List <Account> accountObjectList = accountDAO.read();
-        List <Category> categoryObjectList = categoryDAO.readAll();
+        List <Category> categoryObjectList = categoryDAO.read();
         // Instantiates Account and Category Strings for ObservableList addition
         String accountListItemName;
         String categoryListItemName;
@@ -103,16 +102,16 @@ public class TransactionController {
                 recip = "Débito";
             }
 
-            Transaction transaction = new Transaction(Float.parseFloat(fieldValue.getText()), fieldDescription.getText(),
-                    fieldCategory.getSelectionModel().getSelectedItem(), fieldAccount.getSelectionModel().getSelectedItem(),
-                    fieldNote.getText(), recip, fieldDate.getValue(), fieldReminder.getValue(), fieldConsolidate.isSelected());
+            /// IMPORTANTE: mudar o valor para Account e Category
+//            Transaction transaction = new Transaction(Float.parseFloat(fieldValue.getText()), fieldDescription.getText(),
+//                    fieldCategory.getSelectionModel().getSelectedItem(), fieldAccount.getSelectionModel().getSelectedItem(),
+//                    fieldNote.getText(), recip, fieldDate.getValue(), fieldReminder.getValue(), fieldConsolidate.isSelected());
 
             // Instantiates a new TransactionDAO object
             TransactionDAO traDAO = new TransactionDAO();
 
             // Saves the new info on data
-            traDAO.create(transaction);
-            TransactionDAO.persist();
+//            traDAO.create(transaction);
 
             // Closes the NewCategory Window
             Node source = (Node)  event.getSource();

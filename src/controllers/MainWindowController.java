@@ -17,9 +17,9 @@ import javafx.stage.Stage;
 import model.dao.AccountDAO;
 import model.dao.CategoryDAO;
 import model.dao.TransactionDAO;
-import model.logic.Account;
-import model.logic.Category;
-import model.logic.Transaction;
+import model.bean.Account;
+import model.bean.Category;
+import model.bean.Transaction;
 
 import java.io.IOException;
 
@@ -291,7 +291,7 @@ public class MainWindowController {
         transactionSituation.setCellValueFactory(new TreeItemPropertyValueFactory<>("consolidate"));
 
         ObservableList<Transaction> transactions = FXCollections.observableArrayList();
-        for(Object elements:traDao.readAll()){
+        for(Object elements:traDao.read()){
             transactions.add((Transaction) elements);
         }
 
@@ -319,7 +319,7 @@ public class MainWindowController {
         categoryNote.setCellValueFactory(new TreeItemPropertyValueFactory<>("note"));
 
         ObservableList<Category> categories = FXCollections.observableArrayList();
-        for(Object categoriesElements:catDao.readAll()){
+        for(Object categoriesElements:catDao.read()){
             categories.add((Category) categoriesElements);
         }
 

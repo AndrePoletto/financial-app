@@ -1,36 +1,47 @@
 package model.dao;
 
 import model.connection.ConnectionFactory;
-import model.logic.Account;
+import model.bean.Account;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AccountDAO {
-    /*
-     * Essa class não esta tratando unicidade
-     * ou seja se create for usado para objetos q ja estão na lista
-     * eles vão estar duplicado e foda se :)
-     *
-     */
+
+    private static final String TABLE_NAME = "Accounts";
     private Connection connection;
 
     public AccountDAO() {
         connection = ConnectionFactory.getConnection();
     }
 
+    private Account resultToAccount(ResultSet result) throws SQLException {
+            return  new Account(
+                    result.getInt("idAccount"),
+                    result.getString("name"),
+                    result.getString("iconLetters"),
+                    result.getString("note"),
+                    result.getFloat("value"),
+                    result.getBoolean("situation")
+            );
+    }
+
+    private void accountToStatement(PreparedStatement stmt, Account acc ) throws SQLException {
+        stmt.setString(1, acc.getName());
+        stmt.setString(2, acc.getIconLetters());
+        stmt.setString(3, acc.getNote());
+        stmt.setFloat(4, acc.getValue());
+        stmt.setBoolean(5, acc.isSituation());
+    }
+
     public boolean create(Account acc) {
-        PreparedStatement stmt = null;
-        String sql = "INSERT INTO account (name, iconLetters, note, value, situation)VALUES(?,?,?,?,?)";
-        ResultSet result = null;
+        PreparedStatement stmt;
+        String sql = "INSERT INTO "+ TABLE_NAME +" (name, iconLetters, note, value, situation)VALUES(?,?,?,?,?)";
+        ResultSet result;
         try {
             stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            stmt.setString(1, acc.getName());
-            stmt.setString(2, acc.getIconLetters());
-            stmt.setString(3, acc.getNote());
-            stmt.setFloat(4, acc.getValue());
-            stmt.setBoolean(5, acc.isSituation());
+            accountToStatement(stmt, acc);
             stmt.executeUpdate();
             result = stmt.getGeneratedKeys();
             result.next();
@@ -43,24 +54,17 @@ public class AccountDAO {
     }
 
     public List<Account> read() {
-        PreparedStatement stmt = null;
-        ResultSet result = null;
-        String sql = "SELECT * FROM account";
+        PreparedStatement stmt;
+        ResultSet result;
+        String sql = "SELECT * FROM "+ TABLE_NAME;
         List<Account> accounts = new ArrayList<>();
         try {
             stmt = connection.prepareStatement(sql);
             result = stmt.executeQuery();
-            while (result.next()) {
-                Account acc = new Account(
-                        result.getInt("idaccount"),
-                        result.getString("name"),
-                        result.getString("iconLetters"),
-                        result.getString("note"),
-                        result.getFloat("value"),
-                        result.getBoolean("situation")
-                );
-                accounts.add(acc);
+            while (result.next()){
+                accounts.add(resultToAccount(result));
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -69,28 +73,22 @@ public class AccountDAO {
     }
 
     public boolean update(Account acc) {
-        PreparedStatement stmt = null;
-        String sql = "UPDATE account SET name = ?, iconLetters = ?, note = ?, value = ?, situation = ?";
+        PreparedStatement stmt;
+        String sql = "UPDATE "+ TABLE_NAME +" SET name = ?, iconLetters = ?, note = ?, value = ?, situation = ?";
         try {
             stmt = connection.prepareStatement(sql);
-            stmt.setString(1, acc.getName());
-            stmt.setString(2, acc.getIconLetters());
-            stmt.setString(3, acc.getNote());
-            stmt.setFloat(4, acc.getValue());
-            stmt.setBoolean(5, acc.isSituation());
+            accountToStatement(stmt, acc);
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
-        } finally {
-            ConnectionFactory.closeConnection(connection, stmt);
         }
         return true;
     }
 
     public boolean delete(Account acc) {
-        PreparedStatement stmt = null;
-        String sql = "DELETE FROM account WHERE id = ?";
+        PreparedStatement stmt;
+        String sql = "DELETE FROM "+ TABLE_NAME +" WHERE id = ?";
         try {
             stmt = connection.prepareStatement(sql);
             stmt.setInt(1, acc.getId());
@@ -102,20 +100,22 @@ public class AccountDAO {
         return true;
     }
 
-    public int getIdByName(String name) {
-        PreparedStatement stmt = null;
-        ResultSet result = null;
-        String sql = "SELECT * FROM account WHERE name = ?";
-        int id;
+    public Account getByName(String name) {
+        PreparedStatement stmt;
+        ResultSet result;
+        String sql = "SELECT * FROM "+ TABLE_NAME +" WHERE name = ?";
+        Account acc;
         try {
             stmt = connection.prepareStatement(sql);
             stmt.setString(1, name);
             result = stmt.executeQuery();
-            id = result.getInt("id");
+            result.next();
+            acc = resultToAccount(result);
         } catch (SQLException e) {
             e.printStackTrace();
-            return -1;
+            return null;
         }
-        return id;
+        return acc;
     }
+
 }
