@@ -15,62 +15,62 @@ CREATE SCHEMA IF NOT EXISTS `FinancialApp` DEFAULT CHARACTER SET utf8 ;
 USE `FinancialApp` ;
 
 -- -----------------------------------------------------
--- Table `FinancialApp`.`account`
+-- Table `FinancialApp`.`Accounts`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `FinancialApp`.`account` (
-  `idaccount` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `FinancialApp`.`Accounts` (
+  `idAccount` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `iconLetters` VARCHAR(45) NOT NULL,
   `note` TINYTEXT NOT NULL,
   `value` FLOAT NOT NULL,
   `situation` TINYINT(1) NOT NULL,
-  PRIMARY KEY (`idaccount`),
-  UNIQUE INDEX `idaccount_UNIQUE` (`idaccount` ASC),
+  PRIMARY KEY (`idAccount`),
+  UNIQUE INDEX `idaccount_UNIQUE` (`idAccount` ASC),
   UNIQUE INDEX `name_UNIQUE` (`name` ASC))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `FinancialApp`.`category`
+-- Table `FinancialApp`.`Categories`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `FinancialApp`.`category` (
-  `idcategory` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `FinancialApp`.`Categories` (
+  `idCategory` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `type` VARCHAR(45) NOT NULL,
   `categoryColor` VARCHAR(45) NOT NULL,
   `note` TINYTEXT NOT NULL,
-  PRIMARY KEY (`idcategory`),
-  UNIQUE INDEX `idcategory_UNIQUE` (`idcategory` ASC),
+  PRIMARY KEY (`idCategory`),
+  UNIQUE INDEX `idcategory_UNIQUE` (`idCategory` ASC),
   UNIQUE INDEX `name_UNIQUE` (`name` ASC))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `FinancialApp`.`transation`
+-- Table `FinancialApp`.`Transactions`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `FinancialApp`.`transation` (
-  `idtransation` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `FinancialApp`.`Transactions` (
+  `idTransation` INT NOT NULL AUTO_INCREMENT,
   `value` FLOAT NOT NULL,
   `description` VARCHAR(45) NOT NULL,
   `note` VARCHAR(45) NOT NULL,
   `type` VARCHAR(45) NOT NULL,
-  `date` VARCHAR(45) NOT NULL,
+  `date` DATE NOT NULL,
   `remider` VARCHAR(45) NOT NULL,
-  `consolidade` VARCHAR(45) NOT NULL,
-  `account_idaccount` INT NOT NULL,
-  `category_idcategory` INT NOT NULL,
-  PRIMARY KEY (`idtransation`),
-  UNIQUE INDEX `idtransation_UNIQUE` (`idtransation` ASC),
-  INDEX `fk_transation_account_idx` (`account_idaccount` ASC),
-  INDEX `fk_transation_category1_idx` (`category_idcategory` ASC),
-  CONSTRAINT `fk_transation_account`
-    FOREIGN KEY (`account_idaccount`)
-    REFERENCES `FinancialApp`.`account` (`idaccount`)
+  `consolidate` TINYINT(1) NOT NULL,
+  `categories_idCategory` INT NOT NULL,
+  `accounts_idAccount` INT NOT NULL,
+  PRIMARY KEY (`idTransation`),
+  UNIQUE INDEX `idtransation_UNIQUE` (`idTransation` ASC),
+  INDEX `fk_Transactions_Categories1_idx` (`categories_idCategory` ASC),
+  INDEX `fk_Transactions_Accounts1_idx` (`accounts_idAccount` ASC),
+  CONSTRAINT `fk_Transactions_Categories1`
+    FOREIGN KEY (`categories_idCategory`)
+    REFERENCES `FinancialApp`.`Categories` (`idCategory`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_transation_category1`
-    FOREIGN KEY (`category_idcategory`)
-    REFERENCES `FinancialApp`.`category` (`idcategory`)
+  CONSTRAINT `fk_Transactions_Accounts1`
+    FOREIGN KEY (`accounts_idAccount`)
+    REFERENCES `FinancialApp`.`Accounts` (`idAccount`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
