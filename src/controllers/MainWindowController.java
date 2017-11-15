@@ -22,8 +22,6 @@ import model.logic.Category;
 import model.logic.Transaction;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.Month;
 
 
 public class MainWindowController {
@@ -352,7 +350,7 @@ public class MainWindowController {
         accountSituation.setCellValueFactory(new TreeItemPropertyValueFactory<>("situation"));
         
         ObservableList<Account> accounts = FXCollections.observableArrayList();
-        for(Object elements:accDao.readAll()){
+        for(Object elements:accDao.read()){
             accounts.add((Account) elements);
         }
 

@@ -35,7 +35,6 @@ public class AccountController {
 
             // Saves the new info on data
             accDAO.create(acc);
-            AccountDAO.persist();
 
             // Closes the NewAccount Window
             Node source = (Node)  event.getSource();

@@ -5,19 +5,30 @@ import java.io.Serializable;
 
 public class Account extends RecursiveTreeObject<Account> implements Serializable{
 
-    private static final long serialVersionUID = 1;
-
+    private int id;
     private String name, iconLetters, note;
     private float value;
     private boolean situation;
 
     public Account(String name, String iconLetters, String note, float value, boolean situation) {
+        this.id = -1;
         this.name = name;
         this.iconLetters = iconLetters;
         this.note = note;
         this.value = value;
         this.situation = situation;
     }
+
+    public Account(int id, String name, String iconLetters, String note, float value, boolean situation) {
+        this.id = id;
+        this.name = name;
+        this.iconLetters = iconLetters;
+        this.note = note;
+        this.value = value;
+        this.situation = situation;
+    }
+
+    public int getId() { return this.id; }
 
     public String getName(){
         return name;
@@ -39,12 +50,12 @@ public class Account extends RecursiveTreeObject<Account> implements Serializabl
         return situation;
     }
 
-    public void print(){
-        System.out.print("name: " + name + "\niconLetters: " + iconLetters + "\nnote: " + note +
-                "\nvalue: " + value + "\nsituation: " + situation);
+    public void setId(int id){
+        this.id = id;
     }
 
-    public String getCsvFormat(){
-        return name+","+iconLetters+","+note+","+value+","+situation+"\n";
+    @Override
+    public String toString() {
+        return "Id: " + id + "\nName:" + name;
     }
 }

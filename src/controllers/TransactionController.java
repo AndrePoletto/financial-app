@@ -60,7 +60,7 @@ public class TransactionController {
         AccountDAO accountDAO = new AccountDAO();
         CategoryDAO categoryDAO = new CategoryDAO();
         // Instantiates List of Account and Category Objects
-        List <Account> accountObjectList = accountDAO.readAll();
+        List <Account> accountObjectList = accountDAO.read();
         List <Category> categoryObjectList = categoryDAO.readAll();
         // Instantiates Account and Category Strings for ObservableList addition
         String accountListItemName;

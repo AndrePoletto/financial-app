@@ -1,9 +1,13 @@
 package model.dao;
 
+import model.connection.ConnectionFactory;
 import model.logic.Account;
 import model.logic.Category;
 
 import java.io.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,16 +22,13 @@ public class CategoryDAO {
     private static ArrayList<Category> data;
     private static File dataDir;
     private static File dataFile;
+    private static Connection connection;
 
     public CategoryDAO() {
 
+        connection = ConnectionFactory.getConnection();
         // Open file
-        dataDir = new File("src" + File.separator + "model" + File.separator + "data");
-        dataFile = new File(dataDir, "category.bin");
 
-        data = new ArrayList<Category>();
-
-        loadData();
     }
 
     /**
@@ -36,7 +37,22 @@ public class CategoryDAO {
      * @param cat
      */
     public void create(Category cat) {
-        data.add(cat);
+            PreparedStatement stmt;
+            String sql = "INSERT INTO category (name, type, categoryColor, note)VALUES(?,?,?,?)";
+
+            try {
+                stmt = connection.prepareStatement(sql);
+
+                stmt.setString(1,cat.getName());
+                stmt.setString(2,cat.getType());
+                stmt.setString(3,cat.getCategoryColor());
+                stmt.setString(4,cat.getNote());
+
+                stmt.executeUpdate();
+            } catch (SQLException e){
+                e.printStackTrace();
+            }
+
     }
 
     /**
