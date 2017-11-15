@@ -1,9 +1,9 @@
-package model.logic;
+package model.bean;
 
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 import java.io.Serializable;
 
-public class Account extends RecursiveTreeObject<Account> implements Serializable{
+public class Account extends RecursiveTreeObject<Account>{
 
     private int id;
     private String name, iconLetters, note;
