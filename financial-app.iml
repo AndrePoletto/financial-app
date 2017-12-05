@@ -9,5 +9,14 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jfoenix" level="project" />
     <orderEntry type="library" name="mysql-connector-java-5.1.44-bin" level="project" />
+    <orderEntry type="library" name="commons-beanutils-1.8.2" level="project" />
+    <orderEntry type="library" name="commons-collections-3.2.1" level="project" />
+    <orderEntry type="library" name="commons-digester-2.1" level="project" />
+    <orderEntry type="library" name="commons-logging-1.2" level="project" />
+    <orderEntry type="library" name="groovy-all-2.0.1" level="project" />
+    <orderEntry type="library" name="iText-2.1.7.js2" level="project" />
+    <orderEntry type="library" name="jasperreports-6.2.2" level="project" />
+    <orderEntry type="library" name="jasperreports-fonts-6.2.2" level="project" />
+    <orderEntry type="library" name="jasperreports-javaflow-6.2.2" level="project" />
   </component>
 </module>
